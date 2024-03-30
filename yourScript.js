@@ -9,7 +9,7 @@ const connectWallet = async () => {
     try {
         await wallet.connect();
         console.log('Connected to Solana wallet:', wallet.publicKey.toString());
-        // Add your logic after successful connection
+        // Add your logic after successful co.nnection
     } catch (error) {
         console.error('Error connecting to Solana wallet:', error);
     }
