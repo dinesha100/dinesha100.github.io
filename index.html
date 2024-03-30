@@ -3,11 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solana Wallet Conne.ct</title>
+    <title>Simple WebApp</title>
 </head>
 <body>
-    <button id="connectButton">Connect to Solana Wallet</button>
-    <!-- Add scripts at the end of the body for better performance -->
-    <script src="yourScript.js"></script>
+    <header>
+        <h1>Welcome to Simple WebApp</h1>
+        <button id="walletBtn">Wallet</button>
+    </header>
+
+    <main>
+        <!-- Wallet Button Component -->
+        <div id="walletContainer"></div>
+    </main>
+
+    <!-- Solana Wallet Adapter Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter@^2.0.0"></script>
+
+    <script>
+        // Function to initialize wallet button
+        function initializeWalletButton() {
+            const walletContainer = document.getElementById('walletContainer');
+            const walletBtn = document.getElementById('walletBtn');
+
+            // Render wallet button
+            walletBtn.addEventListener('click', () => {
+                walletContainer.innerHTML = ''; // Clear previous content
+                const walletBtnComponent = document.createElement('div');
+                walletBtnComponent.innerHTML = '<WalletMultiButton />';
+                walletContainer.appendChild(walletBtnComponent);
+            });
+        }
+
+        // Initialize wallet button when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeWalletButton);
+    </script>
 </body>
 </html>
