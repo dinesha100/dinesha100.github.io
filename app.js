@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
   const createIDBtn = document.getElementById('createID');
 
-  // Create ID Name and send 0.2 Sol
   createIDBtn.addEventListener('click', async () => {
     try {
       const publicKey = await window.solana.publicKey();
@@ -14,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         toPubkey: to,
         lamports: amount,
       }));
+      
       transaction.recentBlockhash = (await connection.getRecentBlockhash()).blockhash;
       transaction.feePayer = publicKey;
       
