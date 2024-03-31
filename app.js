@@ -1,5 +1,21 @@
 document.addEventListener("DOMContentLoaded", async function() {
+  const connectWalletBtn = document.getElementById('connectWallet');
   const createIDBtn = document.getElementById('createID');
+
+  // Connect to Phantom Wallet
+  connectWalletBtn.addEventListener('click', async () => {
+    try {
+      if (!window.solana || !window.solana.isPhantom) {
+        throw new Error('Phantom Wallet extension not found!');
+      }
+
+      await window.solana.connect();
+      alert('Connected to Phantom Wallet!');
+    } catch (error) {
+      console.error(error);
+      alert('Failed to connect to Phantom Wallet!');
+    }
+  });
 
   createIDBtn.addEventListener('click', async () => {
     try {
